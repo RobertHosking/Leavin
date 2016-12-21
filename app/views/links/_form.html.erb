@@ -1,0 +1,24 @@
+<%= form_for(link) do |f| %>
+  <% if link.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(link.errors.count, "error") %> prohibited this link from being saved:</h2>
+
+      <ul>
+      <% link.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field input-group input-group-lg">
+    <% if flash[:url] %>
+      <%= f.text_field :out_url, :class => "form-control input-lg", :value => flash[:url]%>
+    <% else %>
+      <%= f.text_field :out_url, :class => "form-control inupt-lg", :placeholder => "Paste a link to shorten it"%>
+    <% end %>
+  <span class="actions input-group-btn">
+    <%= f.submit :class => "btn btn-warning"%>
+  </span>
+  </div>
+<% end %>

@@ -1,0 +1,93 @@
+<link rel="shortcut icon" href="favicon.ico"/>
+<link href="https://fonts.googleapis.com/css?family=Leckerli+One" rel="stylesheet">
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.16/clipboard.min.js"></script>
+
+<div class="container">
+<nav style="" class="navbar navbar-fixed-top" role="navigation">
+   <div class="container">
+      <div class="navbar-brand">Leav.in</div>
+   </div>
+</nav>
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+      <h1 style="color: #fff; text-align:center; margin-top:25%; font-family: helvetica; font-weight:bold; font-size: 3em;">LEAVIN WITH CONFIDENCE.</h1>
+      <br>
+      
+      <%= render 'form', link: @link %>
+      <br>
+      <% if flash[:url]%>
+      <div class="row">
+        <div class="col-sm-8 col-sm-offset-2 card">
+          <h3 id="url"><%= flash[:url]%> </h3>
+
+<button id="copier" class="btn btn-warning center-block" style="margin-bottom:1em;" data-clipboard-text="<%= flash[:url]%>">
+    Copy
+    </button>
+        </div>
+        </div>
+        
+        <script>
+$(document).ready(function() {
+          new Clipboard('#copier');
+
+    $(".form-control-xl:text").select();
+});        </script>
+        
+        
+      <% end %>
+      </br>
+      </br>
+      <span> <h3 style="text-align:center;"> <%= number_with_delimiter(@num, :delimiter => ',') %> </h3> <p style="text-align:center;"> links powered by leav.in </p> </span>
+      
+      
+      <script type="text/javascript">
+      
+      
+    $(document).ready(function(){
+            $('body').addClass('fullheight');
+            var wheight = $(window).height()-50; //get the height of the window
+
+        $('.fullheight').css('height', wheight);
+                $('.halfheight').css('height', wheight/2);
+        
+
+    //resize the "fullheight" elements on screen resize
+    $(window).resize(function() {
+        wheight = $(window).height(); //get the height of the window
+        $('.fullheight').css('height', (wheight)); //set to window tallness
+                $('.halfheight').css('height', wheight/2);
+
+    });
+
+      </script>
+      <style>
+      body{
+        background-color: #7986CB;
+      }
+      .card{
+        border-radius:3px;
+        border-style:solid;
+        border-color:#fff;
+        margins: 1.2em;
+        font-family: helvetica;
+        font-weight: bold;
+        border-radius: 5px;
+      }
+      .navbar-brand{
+        font-family: 'Leckerli One', cursive;
+        color: #fff;
+        font-size: 2.6em;
+        margin-top:0.5em;
+      }
+      #url{
+        color: #fff;
+        text-align:center;
+        margin:1em;
+      }
+      </style>
+        
+    </div>
+  </div>
+</div>
