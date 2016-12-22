@@ -12,12 +12,11 @@
 
 ActiveRecord::Schema.define(version: 20161220203130) do
 
-  create_table "links", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "links", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "in_url"
     t.text     "out_url",     limit: 65535
     t.integer  "http_status",               default: 301
     t.integer  "clicks",                    default: 0
-    t.string   "title"
     t.datetime "created_at",                              null: false
     t.datetime "updated_at",                              null: false
     t.index ["in_url"], name: "index_links_on_in_url", using: :btree
